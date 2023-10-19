@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function(event){
     loadVideo("Đen vâu");
 } );
 
-var modal = document.getElementById('myModal');
+var model = document.getElementById('myModel');
 
 var span = document.getElementsByClassName("close")[0];
 
@@ -16,20 +16,21 @@ var span = document.getElementsByClassName("close")[0];
 var videoFrame = document.getElementById("video-frame");
 
 
-span.onclick = function() {
+span.onclick= function(){
     closeVideo();
 }
 
 
-window.onclick = function(event) {
-    if (event.target == modal) {
+
+window.onclick= function(event) {
+    if (event.target == model) {
         closeVideo();
     }
 }
 
 function loadVideo(keyword) {
-    var YOUTUBE_API = "https://developers.google.com/youtube/terms/api-services-terms-of-service" + ketword +
-    "&type=video&maxResults=9&part=snippet&key= AIzaSyBWP0l7OyCzlHsSZxns-5wxroD2nVpvUJE";
+    var YOUTUBE_API = "https://content.googleapis.com/youtube/v3/search?q="  + keyword +
+    "&type=video&maxResults=9&part=snippet&key= AIzaSyB_8G8Z6TT0ywYFqOJ9kXNnF2TscguVqX0";
     var xhr = new XMLHttpRequest();
     xhr.open("GET", YOUTUBE_API, true);
     xhr.onreadystatechange = function(){
@@ -63,14 +64,14 @@ function loadVideo(keyword) {
     xhr.send();
 }
 function closeVideo(){
-    modal.style.display = "none";
+    model.style.display = "none";
     videoFrame.src = "";
 }
 
 function showVideo(videoId){
     videoFrame.src = "http://www.youtube.com/embed/" + videoId + "?autoplay=1";
     setTimeout(function(){
-        modal.style.display = "block";
+        model.style.display = "block";
     },300);
 
 }
